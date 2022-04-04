@@ -3,10 +3,24 @@ package com.example.c196.Entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.time.LocalDateTime;
+
 
 @Entity(tableName = "Courses")
 public class Courses {
+    public Courses(int courseID, String courseName, int termAffiliation, String status, String start, String finish, String instructorName, String instructorEmail, String instructorPhoneNumber, boolean startAlert, boolean endAlert) {
+        this.courseID = courseID;
+        CourseName = courseName;
+        this.termAffiliation = termAffiliation;
+        this.status = status;
+        this.start = start;
+        this.finish = finish;
+        this.instructorName = instructorName;
+        this.instructorEmail = instructorEmail;
+        this.instructorPhoneNumber = instructorPhoneNumber;
+        this.startAlert = startAlert;
+        this.endAlert = endAlert;
+    }
+
     @PrimaryKey(autoGenerate = true)
     private int courseID;
     private String CourseName;
@@ -19,6 +33,11 @@ public class Courses {
     private String instructorPhoneNumber;
     private boolean startAlert;
     private boolean endAlert;
+
+    public Courses() {
+
+    }
+
 
     @Override
     public String toString() {
@@ -125,17 +144,5 @@ public class Courses {
         this.endAlert = endAlert;
     }
 
-    public Courses(int courseID, String courseName, int termAffiliation, String status, String start, String finish, String instructorName, String instructorEmail, String instructorPhoneNumber, boolean startAlert, boolean endAlert) {
-        this.courseID = courseID;
-        CourseName = courseName;
-        this.termAffiliation = termAffiliation;
-        this.status = status;
-        this.start = start;
-        this.finish = finish;
-        this.instructorName = instructorName;
-        this.instructorEmail = instructorEmail;
-        this.instructorPhoneNumber = instructorPhoneNumber;
-        this.startAlert = startAlert;
-        this.endAlert = endAlert;
-    }
+
 }
