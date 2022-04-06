@@ -11,31 +11,53 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Term Name:" />
+
         <EditText
             android:id="@+id/termNameID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Term Title:" />
+            android:minHeight="48dp"
+            android:hint="Term Name" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Term Start Date:" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/termStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
             android:minHeight="48dp"
-            android:text="Start Date:" />
+            android:hint="Start Date" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Term End Date:" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/termEnd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
             android:minHeight="48dp"
-            android:text="End Date:" />
+            android:hint="End Date" />
+
+
 
         <TextView
             android:id="@+id/textView5"

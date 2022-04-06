@@ -11,25 +11,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Terms"
-            android:textSize="48sp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No terms to display." />
-
         <Button
             android:id="@+id/addTerm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="enterDetailedTerm"
             android:text="ADD TERM" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recycleTerms"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

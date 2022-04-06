@@ -7,6 +7,7 @@
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/drawable/ic_baseline_grade_24.xml" value="0.1935" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1935" />
+        <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/layout/activity_add_term.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/layout/activity_assessment.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/layout/activity_course.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/layout/activity_detailed_assessment.xml" value="0.16847826086956522" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/layout/content_terms.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/layout/fragment_first.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/layout/fragment_second.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/layout/term_list.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/menu/menu_course.xml" value="1.3285714285714285" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1935" />
         <entry key="..\:/Users/Mandeep/AndroidStudioProjects/C196/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1935" />

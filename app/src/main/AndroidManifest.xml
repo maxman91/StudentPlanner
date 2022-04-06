@@ -11,34 +11,34 @@
         android:theme="@style/Theme.C196">
         <activity
             android:name=".UI.DetailedAssessmentActivity"
-            android:parentActivityName=".UI.AssessmentActivity"
+            android:exported="false"
             android:label="Assessment Details"
-            android:exported="false" />
+            android:parentActivityName=".UI.AssessmentActivity" />
         <activity
             android:name=".UI.DetailedCourseActivity"
-            android:parentActivityName=".UI.CourseActivity"
+            android:exported="false"
             android:label="Course Details"
-            android:exported="false" />
+            android:parentActivityName=".UI.CourseActivity" />
         <activity
             android:name=".UI.DetailedTermActivity"
-            android:parentActivityName=".UI.TermActivity"
+            android:exported="false"
             android:label="Term Details"
-            android:exported="false" />
+            android:parentActivityName=".UI.TermActivity" />
         <activity
             android:name=".UI.TermActivity"
-            android:parentActivityName=".UI.MainActivity"
+            android:exported="false"
             android:label="Terms"
-            android:exported="false" />
+            android:parentActivityName=".UI.MainActivity" />
         <activity
             android:name=".UI.AssessmentActivity"
-            android:parentActivityName=".UI.MainActivity"
+            android:exported="false"
             android:label="Assessments"
-            android:exported="false" />
+            android:parentActivityName=".UI.MainActivity" />
         <activity
             android:name=".UI.CourseActivity"
+            android:exported="false"
             android:label="Courses"
-            android:parentActivityName=".UI.MainActivity"
-            android:exported="false" />
+            android:parentActivityName=".UI.MainActivity" />
         <activity
             android:name=".UI.MainActivity"
             android:exported="true">
