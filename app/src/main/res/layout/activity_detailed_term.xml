@@ -66,9 +66,10 @@
             android:text="Add courses to this term." />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/termSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="saveButton"
             android:text="SAVE" />
 
         <Button
