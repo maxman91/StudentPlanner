@@ -73,9 +73,10 @@
             android:text="SAVE" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/termDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="deleteButton"
             android:text="DELETE" />
 
     </LinearLayout>
