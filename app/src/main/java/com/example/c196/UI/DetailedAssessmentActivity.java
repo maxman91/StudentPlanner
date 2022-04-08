@@ -21,11 +21,20 @@ public class DetailedAssessmentActivity extends AppCompatActivity {
     EditText assessmentName;
     EditText startDate;
     EditText endDate;
+
+    int assessmentID;
+    String name;
+    String start;
+    String end;
+    String type;
+    boolean endWaring;
+    boolean startWarning;
+
+
     CheckBox startAlert;
     CheckBox endAlert;
     Repository repo;
 
-    int assessmentID;
     Button delete;
 
 
@@ -42,7 +51,34 @@ public class DetailedAssessmentActivity extends AppCompatActivity {
         endAlert = findViewById(R.id.AssessmentEndAlert);
         delete = findViewById(R.id.assessmentDelete);
         repo = new Repository(getApplication());
-        assessmentID = 0; //default test
+        assessmentID = getIntent().getIntExtra("id", 0);
+
+        if (assessmentID !=0){
+        name = getIntent().getStringExtra("name");
+        start = getIntent().getStringExtra("start");
+        end = getIntent().getStringExtra("end");
+        type = getIntent().getStringExtra("type");
+        startWarning = getIntent().getBooleanExtra("startAlert",false);
+        endWaring = getIntent().getBooleanExtra("endAlert",false);
+
+        startAlert.setChecked(startWarning);
+        endAlert.setChecked(endWaring);
+
+
+        assessmentName.setText(name);
+        startDate.setText(start);
+        endDate.setText(end);
+
+        if (type.equals("Objective")){
+            objective.setChecked(true);
+        }
+        else if (type.equals("Performance")){
+            performance.setChecked(true);
+        }
+        }
+
+
+
 
         if (assessmentID ==0) {
             delete.setText("Cancel");
@@ -82,6 +118,21 @@ public class DetailedAssessmentActivity extends AppCompatActivity {
                     startDate.getText().toString(),endDate.getText().toString(),startAlert.isChecked(),
                     endAlert.isChecked(),0);
             repo.update(assessment);
+        }
+
+        Intent intent = new Intent(DetailedAssessmentActivity.this, AssessmentActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void onAssessmentDelete(View view) {
+        Assessments assessment;
+        if (assessmentID != 0){
+            assessment = new Assessments(assessmentID,assessmentName.getText().toString(),type,
+                    startDate.getText().toString(),endDate.getText().toString(),startAlert.isChecked(),
+                    endAlert.isChecked(),0);
+            repo.delete(assessment);
+
         }
 
         Intent intent = new Intent(DetailedAssessmentActivity.this, AssessmentActivity.class);
