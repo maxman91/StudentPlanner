@@ -29,7 +29,7 @@ public class DetailedTermActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_term);
-        termName = findViewById(R.id.termNameID);
+        termName = findViewById(R.id.assessmentName);
         termStarting = findViewById(R.id.termStart);
         termEnding = findViewById(R.id.termEnd);
         name = getIntent().getStringExtra("name");

@@ -11,52 +11,92 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Assessment Title:" />
+
         <EditText
-            android:id="@+id/termNameID"
+            android:id="@+id/assessmentName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Assesment Title:" />
+            android:minHeight="48dp"
+            android:hint="Assessment Title" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Date:" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/assessmentStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
             android:minHeight="48dp"
-            android:text="Start Date:" />
+            android:hint="Start Date" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/AssessmentStartAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start date alert" />
 
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="End Date:" />
+
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/assessmentEnd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
             android:minHeight="48dp"
-            android:text="End Date:" />
+            android:hint="End Date" />
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/AssessmentEndAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="End date alert" />
 
-        <Button
-            android:id="@+id/button7"
+        <TextView
+            android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Type:" />
+
+        <RadioButton
+            android:id="@+id/radioPerformance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onPerformance"
+            android:text="Performance Assessment" />
+
+        <RadioButton
+            android:id="@+id/radioObjective"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onObjective"
+            android:text="Objective Assessment" />
+
+        <Button
+            android:id="@+id/assessmentSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onAssessmentSave"
             android:text="SAVE" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/assessmentDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DELETE" />

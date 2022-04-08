@@ -9,8 +9,9 @@ import java.time.LocalDateTime;
 public class Assessments {
     @PrimaryKey(autoGenerate = true)
     private int assessmentID;
+    private int courseAffiliate;
     private String assessmentName;
-    private String note;
+    private String type;
     private String start;
     private String end;
     private boolean startAlert;
@@ -21,7 +22,7 @@ public class Assessments {
         return "Assessments{" +
                 "assessmentID=" + assessmentID +
                 ", assessmentName='" + assessmentName + '\'' +
-                ", note='" + note + '\'' +
+                ", type='" + type + '\'' +
                 ", start=" + start +
                 ", end=" + end +
                 ", startAlert=" + startAlert +
@@ -45,12 +46,12 @@ public class Assessments {
         this.assessmentName = assessmentName;
     }
 
-    public String getNote() {
-        return note;
+    public String getType() {
+        return type;
     }
 
-    public void setNote(String note) {
-        this.note = note;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getStart() {
@@ -85,13 +86,22 @@ public class Assessments {
         this.endAlert = endAlert;
     }
 
-    public Assessments(int assessmentID, String assessmentName, String note, String start, String end, boolean startAlert, boolean endAlert) {
+    public int getCourseAffiliate() {
+        return courseAffiliate;
+    }
+
+    public void setCourseAffiliate(int courseAffiliate) {
+        this.courseAffiliate = courseAffiliate;
+    }
+
+    public Assessments(int assessmentID, String assessmentName, String type, String start, String end, boolean startAlert, boolean endAlert, int courseAffiliate) {
         this.assessmentID = assessmentID;
         this.assessmentName = assessmentName;
-        this.note = note;
+        this.type = type;
         this.start = start;
         this.end = end;
         this.startAlert = startAlert;
         this.endAlert = endAlert;
+        this.courseAffiliate = courseAffiliate;
     }
 }
