@@ -6,22 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".UI.TermActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/addTerm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="enterDetailedTerm"
-            android:text="ADD TERM" />
-
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recycleTerms"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Terms:"
+                android:textAllCaps="true"
+                android:textStyle="bold|italic" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleTerms"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/addTerm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="enterDetailedTerm"
+                android:text="ADD TERM" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

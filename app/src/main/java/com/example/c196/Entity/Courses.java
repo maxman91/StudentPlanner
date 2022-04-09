@@ -7,23 +7,8 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Courses")
 public class Courses {
-    public Courses(int courseID, String courseName, int termAffiliation, String status, String start, String finish, String instructorName, String instructorEmail, String instructorPhoneNumber, boolean startAlert, boolean endAlert) {
-        this.courseID = courseID;
-        CourseName = courseName;
-        this.termAffiliation = termAffiliation;
-        this.status = status;
-        this.start = start;
-        this.finish = finish;
-        this.instructorName = instructorName;
-        this.instructorEmail = instructorEmail;
-        this.instructorPhoneNumber = instructorPhoneNumber;
-        this.startAlert = startAlert;
-        this.endAlert = endAlert;
-    }
-
     @PrimaryKey(autoGenerate = true)
     private int courseID;
-    private String CourseName;
     private int termAffiliation;
     private String status;
     private String start;
@@ -31,26 +16,50 @@ public class Courses {
     private String instructorName;
     private String instructorEmail;
     private String instructorPhoneNumber;
+    private String note;
+    private String courseName;
     private boolean startAlert;
     private boolean endAlert;
 
-    public Courses() {
 
+    public Courses(int courseID, String courseName, int termAffiliation, String status, String start, String finish, String instructorName, String instructorEmail, String instructorPhoneNumber, String note, boolean startAlert, boolean endAlert) {
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.termAffiliation = termAffiliation;
+        this.status = status;
+        this.start = start;
+        this.finish = finish;
+        this.instructorName = instructorName;
+        this.instructorEmail = instructorEmail;
+        this.instructorPhoneNumber = instructorPhoneNumber;
+        this.note = note;
+        this.startAlert = startAlert;
+        this.endAlert = endAlert;
     }
 
+
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 
     @Override
     public String toString() {
         return "Courses{" +
                 "courseID=" + courseID +
-                ", CourseName='" + CourseName + '\'' +
+                ", courseName='" + courseName + '\'' +
                 ", termAffiliation=" + termAffiliation +
                 ", status='" + status + '\'' +
-                ", start=" + start +
-                ", finish=" + finish +
+                ", start='" + start + '\'' +
+                ", finish='" + finish + '\'' +
                 ", instructorName='" + instructorName + '\'' +
                 ", instructorEmail='" + instructorEmail + '\'' +
                 ", instructorPhoneNumber='" + instructorPhoneNumber + '\'' +
+                ", note='" + note + '\'' +
                 ", startAlert=" + startAlert +
                 ", endAlert=" + endAlert +
                 '}';
@@ -65,11 +74,11 @@ public class Courses {
     }
 
     public String getCourseName() {
-        return CourseName;
+        return courseName;
     }
 
     public void setCourseName(String courseName) {
-        CourseName = courseName;
+        this.courseName = courseName;
     }
 
     public int getTermAffiliation() {
