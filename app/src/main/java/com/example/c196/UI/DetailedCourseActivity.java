@@ -136,4 +136,14 @@ public class DetailedCourseActivity extends AppCompatActivity {
         Intent intent = new Intent(DetailedCourseActivity.this, CourseActivity.class);
         startActivity(intent);
     }
+
+    public void onShareNote(View view) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT,courseNote.getText().toString());
+        sendIntent.putExtra(Intent.EXTRA_TITLE,courseName.getText().toString()+" Note");
+        sendIntent.setType("text/plain");
+        Intent shareIntent = Intent.createChooser(sendIntent,null);
+        startActivity(shareIntent);
+    }
 }
