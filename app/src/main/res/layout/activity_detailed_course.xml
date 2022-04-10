@@ -193,6 +193,7 @@
                 android:id="@+id/deleteCourse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onCourseDelete"
                 android:minHeight="32dp"
                 android:text="DELETE" />
 
