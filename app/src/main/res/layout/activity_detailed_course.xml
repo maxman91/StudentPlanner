@@ -73,7 +73,7 @@
                 android:hint="End Date:" />
 
             <CheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/courseEndDateAlert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="End date alert" />
@@ -186,6 +186,7 @@
                 android:id="@+id/saveCourse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onCourseSave"
                 android:text="SAVE" />
 
             <Button
