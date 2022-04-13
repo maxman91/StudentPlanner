@@ -2,17 +2,28 @@ package com.example.c196.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Assessments;
 import com.example.c196.Entity.Courses;
 import com.example.c196.R;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class DetailedCourseActivity extends AppCompatActivity {
     EditText courseName;
@@ -27,6 +38,9 @@ public class DetailedCourseActivity extends AppCompatActivity {
     CheckBox endAlert;
     Repository repo;
 
+    DatePickerDialog.OnDateSetListener startingDate;
+    final Calendar calendar = Calendar.getInstance();
+
     String name;
     String start;
     String end;
@@ -40,6 +54,9 @@ public class DetailedCourseActivity extends AppCompatActivity {
 
     boolean startWarning;
     boolean endWaring;
+
+    String dateFormat = "MM/dd/yy";
+    SimpleDateFormat SDFormat = new SimpleDateFormat(dateFormat, Locale.US);
 
 
 
@@ -62,10 +79,36 @@ public class DetailedCourseActivity extends AppCompatActivity {
         delete = findViewById(R.id.deleteCourse);
         courseID = getIntent().getIntExtra("id", 0);
 
+
+
+        courseStartDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Date date;
+                String info = courseStartDate.getText().toString();
+
+                new DatePickerDialog(DetailedCourseActivity.this, startingDate, calendar
+                .get(Calendar.YEAR), calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
+        startingDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                courseStartDate.setText(SDFormat.format(calendar.getTime()));
+            }
+        };
+
         repo = new Repository(getApplication());
         if (courseID ==0){
             delete.setText("Cancel");
         }
+
+
         if (courseID != 0){
             name = getIntent().getStringExtra("name");
             start = getIntent().getStringExtra("start");
@@ -117,6 +160,20 @@ public class DetailedCourseActivity extends AppCompatActivity {
                     endAlert.isChecked());
             repo.update(courses);
         }
+        String startTimeString = courseStartDate.getText().toString();
+        Date startTimeObject = null;
+        try {
+             startTimeObject = SDFormat.parse(startTimeString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Long trigger=startTimeObject.getTime();
+        Intent IntentStart = new Intent(DetailedCourseActivity.this, receiver.class);
+        IntentStart.putExtra("key","messageIwantToSend");
+        PendingIntent sender=PendingIntent.getBroadcast(DetailedCourseActivity.this,MainActivity.Alert++,IntentStart,0);
+        AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
+
 
         Intent intent = new Intent(DetailedCourseActivity.this, CourseActivity.class);
         startActivity(intent);

@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.C196">
+        <receiver
+            android:name=".UI.receiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
         <activity
             android:name=".UI.DetailedAssessmentActivity"
             android:exported="false"
