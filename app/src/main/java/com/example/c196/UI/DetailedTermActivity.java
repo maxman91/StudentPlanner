@@ -2,15 +2,22 @@ package com.example.c196.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Terms;
 import com.example.c196.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class DetailedTermActivity extends AppCompatActivity {
     EditText termName;
@@ -21,6 +28,12 @@ public class DetailedTermActivity extends AppCompatActivity {
     String end;
     int termID;
     Repository repo;
+
+    DatePickerDialog.OnDateSetListener startingDate;
+    DatePickerDialog.OnDateSetListener endingDate;
+    final Calendar calendar = Calendar.getInstance();
+    String dateFormat = "MM/dd/yy";
+    SimpleDateFormat SDFormat = new SimpleDateFormat(dateFormat, Locale.US);
 
     Button delete;
 
@@ -47,6 +60,49 @@ public class DetailedTermActivity extends AppCompatActivity {
         if (termID == 0){
             delete.setText("Cancel");
         }
+        termStarting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Date date;
+                String info = termStarting.getText().toString();
+
+                new DatePickerDialog(DetailedTermActivity.this, startingDate, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
+        termEnding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Date date;
+                String info = termEnding.getText().toString();
+
+                new DatePickerDialog(DetailedTermActivity.this, endingDate, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
+        startingDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                termStarting.setText(SDFormat.format(calendar.getTime()));
+            }
+        };
+
+        endingDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                termEnding.setText(SDFormat.format(calendar.getTime()));
+            }
+        };
 
 
 

@@ -39,6 +39,7 @@ public class DetailedCourseActivity extends AppCompatActivity {
     Repository repo;
 
     DatePickerDialog.OnDateSetListener startingDate;
+    DatePickerDialog.OnDateSetListener endingDate;
     final Calendar calendar = Calendar.getInstance();
 
     String name;
@@ -93,6 +94,20 @@ public class DetailedCourseActivity extends AppCompatActivity {
             }
         });
 
+        courseEndDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Date date;
+                String info = courseEndDate.getText().toString();
+
+                new DatePickerDialog(DetailedCourseActivity.this, endingDate, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
+
+
         startingDate = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
@@ -100,6 +115,16 @@ public class DetailedCourseActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, i1);
                 calendar.set(Calendar.DAY_OF_MONTH, i2);
                 courseStartDate.setText(SDFormat.format(calendar.getTime()));
+            }
+        };
+
+        endingDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                courseEndDate.setText(SDFormat.format(calendar.getTime()));
             }
         };
 
@@ -160,6 +185,8 @@ public class DetailedCourseActivity extends AppCompatActivity {
                     endAlert.isChecked());
             repo.update(courses);
         }
+
+        if (startAlert.isChecked()){
         String startTimeString = courseStartDate.getText().toString();
         Date startTimeObject = null;
         try {
@@ -169,10 +196,26 @@ public class DetailedCourseActivity extends AppCompatActivity {
         }
         Long trigger=startTimeObject.getTime();
         Intent IntentStart = new Intent(DetailedCourseActivity.this, receiver.class);
-        IntentStart.putExtra("key","messageIwantToSend");
+        IntentStart.putExtra("key","Course: "+courseName.getText().toString()+" begins today.");
         PendingIntent sender=PendingIntent.getBroadcast(DetailedCourseActivity.this,MainActivity.Alert++,IntentStart,0);
         AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
+        }
+        if (endAlert.isChecked()){
+            String startTimeString = courseEndDate.getText().toString();
+            Date startTimeObject = null;
+            try {
+                startTimeObject = SDFormat.parse(startTimeString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            Long trigger=startTimeObject.getTime();
+            Intent IntentStart = new Intent(DetailedCourseActivity.this, receiver.class);
+            IntentStart.putExtra("key","Course: "+courseName.getText().toString()+" ends today.");
+            PendingIntent sender=PendingIntent.getBroadcast(DetailedCourseActivity.this,MainActivity.Alert++,IntentStart,0);
+            AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
+        }
 
 
         Intent intent = new Intent(DetailedCourseActivity.this, CourseActivity.class);

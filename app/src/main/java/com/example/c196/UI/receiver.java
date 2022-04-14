@@ -15,7 +15,7 @@ import androidx.core.app.NotificationCompat;
 import com.example.c196.R;
 
 public class receiver extends BroadcastReceiver {
-    String channel_ID ="TEST";
+    String channel_ID ="C196";
     static int notificationID;
 
 
@@ -26,7 +26,7 @@ public class receiver extends BroadcastReceiver {
         Toast.makeText(context,intent.getStringExtra("key"), Toast.LENGTH_LONG).show();
         createNotification(context,channel_ID);
 
-        Notification n=new NotificationCompat.Builder(context,channel_ID).setSmallIcon(R.drawable.ic_launcher_foreground).setContentText(intent.getStringExtra("key")).setContentTitle("NotificationTest").build();
+        Notification n=new NotificationCompat.Builder(context,channel_ID).setSmallIcon(R.drawable.ic_launcher_foreground).setContentText(intent.getStringExtra("key")).setContentTitle("Student Scheduler Notification").build();
 
         NotificationManager manager=(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
