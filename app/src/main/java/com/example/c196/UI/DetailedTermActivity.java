@@ -1,6 +1,8 @@
 package com.example.c196.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -11,12 +13,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.c196.Database.Repository;
+import com.example.c196.Entity.Courses;
 import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class DetailedTermActivity extends AppCompatActivity {
@@ -104,7 +108,13 @@ public class DetailedTermActivity extends AppCompatActivity {
             }
         };
 
-
+        RecyclerView recyclerView = findViewById(R.id.CoursesFilteredRecycler);
+        Repository repo = new Repository(getApplication());
+        List<Courses> courses = repo.getAllCourses();
+        final FilteredCourseAdapter adapter = new FilteredCourseAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.setCourses(courses);
 
     }
 
