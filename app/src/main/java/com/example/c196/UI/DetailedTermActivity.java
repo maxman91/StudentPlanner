@@ -111,7 +111,7 @@ public class DetailedTermActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.CoursesFilteredRecycler);
         Repository repo = new Repository(getApplication());
         List<Courses> courses = repo.getAllCourses();
-        final FilteredCourseAdapter adapter = new FilteredCourseAdapter(this);
+        final FilteredCourseAdapter adapter = new FilteredCourseAdapter(this,termID,repo);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.setCourses(courses);
