@@ -44,6 +44,9 @@ public class FilteredCourseAdapter extends RecyclerView.Adapter<FilteredCourseAd
             Courses current = mCourses.get(position);
             String name = current.getCourseName();
             holder.checkBox.setText(name);
+            if (current.getTermAffiliation() !=0 ){
+                holder.checkBox.setChecked(true);
+            }
         }
         else {
             holder.checkBox.setText("No Course Selected!");

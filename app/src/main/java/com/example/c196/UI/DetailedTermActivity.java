@@ -18,6 +18,7 @@ import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -32,6 +33,8 @@ public class DetailedTermActivity extends AppCompatActivity {
     String end;
     int termID;
     Repository repo;
+    List<Courses> filteredCourses = new ArrayList<>();
+
 
     DatePickerDialog.OnDateSetListener startingDate;
     DatePickerDialog.OnDateSetListener endingDate;
@@ -108,13 +111,20 @@ public class DetailedTermActivity extends AppCompatActivity {
             }
         };
 
+
         RecyclerView recyclerView = findViewById(R.id.CoursesFilteredRecycler);
         Repository repo = new Repository(getApplication());
         List<Courses> courses = repo.getAllCourses();
+        for (Courses course:
+                courses) {
+            if (course.getTermAffiliation()==0||course.getTermAffiliation()==termID){
+                filteredCourses.add(course);
+            }
+        }
         final FilteredCourseAdapter adapter = new FilteredCourseAdapter(this,termID,repo);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setCourses(courses);
+        adapter.setCourses(filteredCourses);
 
     }
 
