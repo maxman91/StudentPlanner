@@ -181,7 +181,14 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add assessments to this term." />
+                android:text="Add assessments to this term:"
+                android:textAllCaps="true"
+                android:textStyle="bold|italic" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/AssessmentFilteredRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <Button
                 android:id="@+id/saveCourse"

@@ -1,6 +1,8 @@
 package com.example.c196.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -21,8 +23,10 @@ import com.example.c196.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class DetailedCourseActivity extends AppCompatActivity {
@@ -58,6 +62,8 @@ public class DetailedCourseActivity extends AppCompatActivity {
 
     String dateFormat = "MM/dd/yy";
     SimpleDateFormat SDFormat = new SimpleDateFormat(dateFormat, Locale.US);
+
+    List<Assessments> filteredAssessments = new ArrayList<>();
 
 
 
@@ -157,6 +163,28 @@ public class DetailedCourseActivity extends AppCompatActivity {
             instructorName.setText(iName);
             instructorEmail.setText(iEmail);
             instructorPhoneNumber.setText(iPhoneNumber);
+        }
+        RecyclerView recyclerView = findViewById(R.id.AssessmentFilteredRecycler);
+        Repository repo = new Repository(getApplication());
+        List<Assessments> assessments = repo.getAllAssessments();
+        for (Assessments assessment:
+                assessments) {
+            if (assessment.getCourseAffiliate()==0||assessment.getCourseAffiliate()==courseID){
+                filteredAssessments.add(assessment);
+            }
+        }
+        if (courseID == 0){
+            int   newID = 1;
+            newID = repo.getAllCourses().get(repo.getAllCourses().size()-1).getCourseID()+1;
+            final FilteredAssessmentAdapter adapter = new FilteredAssessmentAdapter(this,newID,repo);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter.setAssessments(filteredAssessments);
+        } else {
+            final FilteredAssessmentAdapter adapter = new FilteredAssessmentAdapter(this,courseID,repo);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter.setAssessments(filteredAssessments);
         }
 
 

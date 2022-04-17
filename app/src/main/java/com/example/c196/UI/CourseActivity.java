@@ -11,10 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.c196.Database.Repository;
+import com.example.c196.Entity.Assessments;
 import com.example.c196.Entity.Courses;
 import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class CourseActivity extends AppCompatActivity {
@@ -33,6 +35,25 @@ public class CourseActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.setCourses(courses);
 
+        HashMap<Integer, Integer> courseMap = new HashMap<Integer, Integer>();
+
+        for (Courses course :
+                courses) {
+            courseMap.put(course.getCourseID(), course.getCourseID());
+        }
+        List<Assessments> assessments = repo.getAllAssessments();
+        for (Assessments assessment :
+                assessments) {
+            if (!courseMap.containsValue(assessment.getCourseAffiliate())) {
+                Assessments assessmentFix = new Assessments(assessment.getAssessmentID(), assessment.getAssessmentName()
+                        , assessment.getType(), assessment.getStart(), assessment.getEnd()
+                        , assessment.isStartAlert(), assessment.isEndAlert(),
+                        0);
+                repo.update(assessmentFix);
+
+            }
+
+        }
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_course, menu);
