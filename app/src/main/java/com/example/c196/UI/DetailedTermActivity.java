@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Courses;
@@ -34,6 +35,7 @@ public class DetailedTermActivity extends AppCompatActivity {
     int termID;
     Repository repo;
     List<Courses> filteredCourses = new ArrayList<>();
+    List<Courses> coursesCheck = new ArrayList<>();
 
 
     DatePickerDialog.OnDateSetListener startingDate;
@@ -159,11 +161,32 @@ public class DetailedTermActivity extends AppCompatActivity {
 
     public void deleteButton(View view) {
         Terms term;
+        List<Courses> courses = repo.getAllCourses();
+        coursesCheck.clear();
+
+
         if (termID !=0){
+            for (Courses course:
+                    courses) {
+                if (course.getTermAffiliation()==termID){
+                    coursesCheck.add(course);
+                }
+            }
+            if (coursesCheck.size()>0){
+                Toast.makeText(DetailedTermActivity.this, "Courses must be removed from the term before deleting.", Toast.LENGTH_LONG).show();
+            }
+            else {
         term = new Terms(termID,termName.getText().toString(), termStarting.getText().toString(),termEnding.getText().toString());
-        repo.delete(term);}
-        Intent intent = new Intent(DetailedTermActivity.this, TermActivity.class);
-        startActivity(intent);
+        repo.delete(term);
+                Intent intent = new Intent(DetailedTermActivity.this, TermActivity.class);
+                startActivity(intent);
+            }
+        }
+
+        if (termID ==0){
+            Intent intent = new Intent(DetailedTermActivity.this, TermActivity.class);
+            startActivity(intent);
+        }
 
     }
 }
