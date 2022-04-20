@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Assessments;
@@ -191,8 +192,24 @@ public class DetailedCourseActivity extends AppCompatActivity {
     }
 
     public void onCourseSave(View view) {
+        String error = null;
+        try {
+
+
         Courses courses;
 
+        if (courseName.getText().toString().isEmpty()){
+            error = "Course title field can't be left blank.";
+            throw new NumberFormatException();
+        }
+            if (courseStartDate.getText().toString().isEmpty()){
+                error = "Course starting date field can't be left blank.";
+                throw new NumberFormatException();
+            }
+            if (courseEndDate.getText().toString().isEmpty()){
+                error = "Course ending date field can't be left blank.";
+                throw new NumberFormatException();
+            }
 
         int   newID = 1;
         if (courseID == 0){
@@ -248,6 +265,10 @@ public class DetailedCourseActivity extends AppCompatActivity {
 
         Intent intent = new Intent(DetailedCourseActivity.this, CourseActivity.class);
         startActivity(intent);
+        }   catch (NumberFormatException E){
+        Toast.makeText(DetailedCourseActivity.this, error, Toast.LENGTH_LONG).show();
+
+    }
     }
 
     public void onCourseDelete(View view) {

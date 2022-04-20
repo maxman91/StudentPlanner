@@ -140,23 +140,44 @@ public class DetailedTermActivity extends AppCompatActivity {
     }
 
     public void saveButton(View view) {
-        Terms term;
-        int   newID = 1;
-        if (termID == 0){
-            if (repo.getAllTerms().size()>0){
-                newID = repo.getAllTerms().get(repo.getAllTerms().size()-1).getTermID()+1;
+        String error = null;
+        try {
+            Terms term;
+            
+            if (termName.getText().toString().isEmpty()){
+                error = "Term title field can't be left blank.";
+                throw new NumberFormatException();
+            }
+            if (termStarting.getText().toString().isEmpty()){
+                error = "Term starting date field can't be left blank.";
+                throw new NumberFormatException();
+            }
+            if (termEnding.getText().toString().isEmpty()){
+                error = "Term ending date field can't be left blank.";
+                throw new NumberFormatException();
+            }
+            int   newID = 1;
+            if (termID == 0){
+                if (repo.getAllTerms().size()>0){
+                    newID = repo.getAllTerms().get(repo.getAllTerms().size()-1).getTermID()+1;
+                }
+
+                term = new Terms(newID,termName.getText().toString(), termStarting.getText().toString(),termEnding.getText().toString());
+                repo.insert(term);
+            }
+            else {
+                term = new Terms(termID,termName.getText().toString(), termStarting.getText().toString(),termEnding.getText().toString());
+                repo.update(term);
             }
 
-            term = new Terms(newID,termName.getText().toString(), termStarting.getText().toString(),termEnding.getText().toString());
-            repo.insert(term);
-        }
-        else {
-            term = new Terms(termID,termName.getText().toString(), termStarting.getText().toString(),termEnding.getText().toString());
-            repo.update(term);
+            Intent intent = new Intent(DetailedTermActivity.this, TermActivity.class);
+            startActivity(intent);
+
+        } catch (NumberFormatException E){
+            Toast.makeText(DetailedTermActivity.this, error, Toast.LENGTH_LONG).show();
+
         }
 
-        Intent intent = new Intent(DetailedTermActivity.this, TermActivity.class);
-        startActivity(intent);
     }
 
     public void deleteButton(View view) {

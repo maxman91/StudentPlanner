@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Assessments;
@@ -156,6 +157,21 @@ public class DetailedAssessmentActivity extends AppCompatActivity {
     }
 
     public void onAssessmentSave(View view) {
+        String error = null;
+        try {
+        if (assessmentName.getText().toString().isEmpty()){
+            error = "Assessment title field can't be left blank.";
+            throw new NumberFormatException();
+        }
+            if (startDate.getText().toString().isEmpty()){
+                error = "Assessment start date field can't be left blank.";
+                throw new NumberFormatException();
+            }
+            if (endDate.getText().toString().isEmpty()){
+                error = "Assessment end date field can't be left blank.";
+                throw new NumberFormatException();
+            }
+
         Assessments assessment;
         String type = "";
         if (performance.isChecked()){
@@ -214,6 +230,11 @@ public class DetailedAssessmentActivity extends AppCompatActivity {
             PendingIntent sender=PendingIntent.getBroadcast(DetailedAssessmentActivity.this,MainActivity.Alert++,IntentStart,0);
             AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
             alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
+        }
+
+        } catch (NumberFormatException E){
+            Toast.makeText(DetailedAssessmentActivity.this, error, Toast.LENGTH_LONG).show();
+
         }
 
     }
