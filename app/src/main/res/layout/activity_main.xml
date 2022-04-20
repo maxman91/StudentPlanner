@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:onClick="enterAssessments"
             android:layout_height="wrap_content"
-            android:text="@string/ASSESSMENTS" />
+            android:text="@string/assessments" />
 
         <Button
             android:id="@+id/termsButton"
