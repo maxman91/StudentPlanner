@@ -47,7 +47,8 @@
                 android:ems="10"
                 android:inputType="date"
                 android:minHeight="48dp"
-                android:hint="Start Date" />
+                android:hint="Start Date"
+                android:focusable="false"/>
 
             <CheckBox
                 android:id="@+id/courseStartDateAlert"
@@ -61,7 +62,8 @@
                 android:layout_height="wrap_content"
                 android:text="End Date:"
                 android:textAllCaps="true"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"
+                />
 
             <EditText
                 android:id="@+id/courseEndDate"
@@ -70,7 +72,8 @@
                 android:ems="10"
                 android:inputType="date"
                 android:minHeight="48dp"
-                android:hint="End Date:" />
+                android:hint="End Date:"
+                android:focusable="false"/>
 
             <CheckBox
                 android:id="@+id/courseEndDateAlert"

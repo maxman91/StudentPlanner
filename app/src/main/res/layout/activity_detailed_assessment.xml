@@ -47,7 +47,9 @@
                 android:ems="10"
                 android:hint="Start Date"
                 android:inputType="date"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:focusable="false"
+                />
 
             <CheckBox
                 android:id="@+id/AssessmentStartAlert"
@@ -70,7 +72,8 @@
                 android:ems="10"
                 android:hint="End Date"
                 android:inputType="date"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:focusable="false"/>
 
             <CheckBox
                 android:id="@+id/AssessmentEndAlert"
