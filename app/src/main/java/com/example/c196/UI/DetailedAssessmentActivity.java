@@ -246,6 +246,7 @@ public class DetailedAssessmentActivity extends AppCompatActivity {
                     startDate.getText().toString(),endDate.getText().toString(),startAlert.isChecked(),
                     endAlert.isChecked(),0);
             repo.delete(assessment);
+            Toast.makeText(DetailedAssessmentActivity.this, "Assessment successfully deleted!", Toast.LENGTH_LONG).show();
 
         }
 

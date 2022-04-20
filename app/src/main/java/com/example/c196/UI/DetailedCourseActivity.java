@@ -210,6 +210,23 @@ public class DetailedCourseActivity extends AppCompatActivity {
                 error = "Course ending date field can't be left blank.";
                 throw new NumberFormatException();
             }
+            if (courseStatus.getText().toString().isEmpty()){
+                error = "Course status field can't be left blank.";
+                throw new NumberFormatException();
+            }
+
+            if (instructorName.getText().toString().isEmpty()){
+                error = "Course instructor name field can't be left blank.";
+                throw new NumberFormatException();
+            }
+            if (instructorEmail.getText().toString().isEmpty()){
+                error = "Course instructor email field can't be left blank.";
+                throw new NumberFormatException();
+            }
+            if (instructorPhoneNumber.getText().toString().isEmpty()){
+                error = "Course instructor phone number field can't be left blank.";
+                throw new NumberFormatException();
+            }
 
         int   newID = 1;
         if (courseID == 0){
@@ -279,6 +296,7 @@ public class DetailedCourseActivity extends AppCompatActivity {
                     instructorEmail.getText().toString(),instructorPhoneNumber.getText().toString(),courseNote.getText().toString(),startAlert.isChecked(),
                     endAlert.isChecked());
             repo.delete(courses);
+            Toast.makeText(DetailedCourseActivity.this, "Course successfully deleted!", Toast.LENGTH_LONG).show();
 
         }
 

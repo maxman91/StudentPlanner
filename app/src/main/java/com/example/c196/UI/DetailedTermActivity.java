@@ -169,10 +169,8 @@ public class DetailedTermActivity extends AppCompatActivity {
                 term = new Terms(termID,termName.getText().toString(), termStarting.getText().toString(),termEnding.getText().toString());
                 repo.update(term);
             }
-
             Intent intent = new Intent(DetailedTermActivity.this, TermActivity.class);
             startActivity(intent);
-
         } catch (NumberFormatException E){
             Toast.makeText(DetailedTermActivity.this, error, Toast.LENGTH_LONG).show();
 
@@ -199,6 +197,8 @@ public class DetailedTermActivity extends AppCompatActivity {
             else {
         term = new Terms(termID,termName.getText().toString(), termStarting.getText().toString(),termEnding.getText().toString());
         repo.delete(term);
+                Toast.makeText(DetailedTermActivity.this, "Term successfully deleted!", Toast.LENGTH_LONG).show();
+
                 Intent intent = new Intent(DetailedTermActivity.this, TermActivity.class);
                 startActivity(intent);
             }
