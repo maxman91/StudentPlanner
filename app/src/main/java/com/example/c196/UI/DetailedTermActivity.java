@@ -125,7 +125,9 @@ public class DetailedTermActivity extends AppCompatActivity {
         }
         if (termID == 0){
             int   newID = 1;
-            newID = repo.getAllTerms().get(repo.getAllTerms().size()-1).getTermID()+1;
+            if (repo.getAllTerms().size()>0){
+                newID = repo.getAllTerms().get(repo.getAllTerms().size()-1).getTermID()+1;
+            }
             final FilteredCourseAdapter adapter = new FilteredCourseAdapter(this,newID,repo);
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));

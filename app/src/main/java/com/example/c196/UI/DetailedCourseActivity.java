@@ -176,7 +176,9 @@ public class DetailedCourseActivity extends AppCompatActivity {
         }
         if (courseID == 0){
             int   newID = 1;
-            newID = repo.getAllCourses().get(repo.getAllCourses().size()-1).getCourseID()+1;
+            if (repo.getAllCourses().size()>0){
+                newID = repo.getAllCourses().get(repo.getAllCourses().size()-1).getCourseID()+1;
+            }
             final FilteredAssessmentAdapter adapter = new FilteredAssessmentAdapter(this,newID,repo);
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
