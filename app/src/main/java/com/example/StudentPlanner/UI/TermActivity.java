@@ -1,4 +1,4 @@
-package com.example.c196.UI;
+package com.example.StudentPlanner.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,10 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.c196.Database.Repository;
-import com.example.c196.Entity.Courses;
-import com.example.c196.Entity.Terms;
-import com.example.c196.R;
+import com.example.StudentPlanner.Database.Repository;
+import com.example.StudentPlanner.Entity.Courses;
+import com.example.StudentPlanner.Entity.Terms;
+import com.example.StudentPlanner.R;
 
 import java.util.HashMap;
 import java.util.List;

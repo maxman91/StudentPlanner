@@ -1,18 +1,15 @@
-package com.example.c196.Database;
+package com.example.StudentPlanner.Database;
 
 import android.app.Application;
 
-import androidx.room.Update;
-
-import com.example.c196.DAO.AssessmentsDAO;
-import com.example.c196.DAO.CoursesDAO;
-import com.example.c196.DAO.TermsDAO;
-import com.example.c196.Entity.Assessments;
-import com.example.c196.Entity.Courses;
-import com.example.c196.Entity.Terms;
+import com.example.StudentPlanner.DAO.AssessmentsDAO;
+import com.example.StudentPlanner.DAO.CoursesDAO;
+import com.example.StudentPlanner.DAO.TermsDAO;
+import com.example.StudentPlanner.Entity.Assessments;
+import com.example.StudentPlanner.Entity.Courses;
+import com.example.StudentPlanner.Entity.Terms;
 
 import java.util.List;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

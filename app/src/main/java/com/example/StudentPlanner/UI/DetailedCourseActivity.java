@@ -1,4 +1,4 @@
-package com.example.c196.UI;
+package com.example.StudentPlanner.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,10 +17,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.c196.Database.Repository;
-import com.example.c196.Entity.Assessments;
-import com.example.c196.Entity.Courses;
-import com.example.c196.R;
+import com.example.StudentPlanner.Database.Repository;
+import com.example.StudentPlanner.Entity.Assessments;
+import com.example.StudentPlanner.Entity.Courses;
+import com.example.StudentPlanner.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

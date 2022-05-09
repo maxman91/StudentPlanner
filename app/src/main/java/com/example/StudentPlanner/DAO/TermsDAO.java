@@ -1,4 +1,4 @@
-package com.example.c196.DAO;
+package com.example.StudentPlanner.DAO;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -7,8 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.c196.Entity.Assessments;
-import com.example.c196.Entity.Terms;
+import com.example.StudentPlanner.Entity.Terms;
 
 import java.util.List;
 

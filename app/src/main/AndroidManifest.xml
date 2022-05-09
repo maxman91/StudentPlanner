@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.c196">
+    package="com.example.StudentPlanner">
 
     <application
         android:allowBackup="true"
@@ -10,42 +10,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.C196">
         <receiver
-            android:name=".UI.receiver"
+            android:name="com.example.StudentPlanner.UI.receiver"
             android:enabled="true"
             android:exported="true"></receiver>
 
         <activity
-            android:name=".UI.DetailedAssessmentActivity"
+            android:name="com.example.StudentPlanner.UI.DetailedAssessmentActivity"
             android:exported="false"
             android:label="Assessment Details"
-            android:parentActivityName=".UI.AssessmentActivity" />
+            android:parentActivityName="com.example.StudentPlanner.UI.AssessmentActivity" />
         <activity
-            android:name=".UI.DetailedCourseActivity"
+            android:name="com.example.StudentPlanner.UI.DetailedCourseActivity"
             android:exported="false"
             android:label="Course Details"
-            android:parentActivityName=".UI.CourseActivity" />
+            android:parentActivityName="com.example.StudentPlanner.UI.CourseActivity" />
         <activity
-            android:name=".UI.DetailedTermActivity"
+            android:name="com.example.StudentPlanner.UI.DetailedTermActivity"
             android:exported="false"
             android:label="Term Details"
-            android:parentActivityName=".UI.TermActivity" />
+            android:parentActivityName="com.example.StudentPlanner.UI.TermActivity" />
         <activity
-            android:name=".UI.TermActivity"
+            android:name="com.example.StudentPlanner.UI.TermActivity"
             android:exported="false"
             android:label="Terms"
-            android:parentActivityName=".UI.MainActivity" />
+            android:parentActivityName="com.example.StudentPlanner.UI.MainActivity" />
         <activity
-            android:name=".UI.AssessmentActivity"
+            android:name="com.example.StudentPlanner.UI.AssessmentActivity"
             android:exported="false"
             android:label="Assessments"
-            android:parentActivityName=".UI.MainActivity" />
+            android:parentActivityName="com.example.StudentPlanner.UI.MainActivity" />
         <activity
-            android:name=".UI.CourseActivity"
+            android:name="com.example.StudentPlanner.UI.CourseActivity"
             android:exported="false"
             android:label="Courses"
-            android:parentActivityName=".UI.MainActivity" />
+            android:parentActivityName="com.example.StudentPlanner.UI.MainActivity" />
         <activity
-            android:name=".UI.MainActivity"
+            android:name="com.example.StudentPlanner.UI.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

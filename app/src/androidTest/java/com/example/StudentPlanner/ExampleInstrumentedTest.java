@@ -1,4 +1,4 @@
-package com.example.c196;
+package com.example.StudentPlanner;
 
 import android.content.Context;
 

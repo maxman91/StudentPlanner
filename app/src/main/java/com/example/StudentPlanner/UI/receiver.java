@@ -1,4 +1,4 @@
-package com.example.c196.UI;
+package com.example.StudentPlanner.UI;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
-import com.example.c196.R;
+import com.example.StudentPlanner.R;
 
 public class receiver extends BroadcastReceiver {
     String channel_ID ="C196";

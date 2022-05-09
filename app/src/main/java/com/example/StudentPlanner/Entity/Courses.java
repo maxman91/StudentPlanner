@@ -1,4 +1,4 @@
-package com.example.c196.Entity;
+package com.example.StudentPlanner.Entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

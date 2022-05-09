@@ -1,4 +1,4 @@
-package com.example.c196.UI;
+package com.example.StudentPlanner.UI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.c196.Entity.Assessments;
-import com.example.c196.R;
+import com.example.StudentPlanner.Entity.Assessments;
+import com.example.StudentPlanner.R;
 
 import java.util.List;
 

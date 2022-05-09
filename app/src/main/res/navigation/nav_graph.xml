@@ -6,12 +6,12 @@
     app:startDestination="@id/mainActivity">
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.c196.UI.MainActivity"
+        android:name="com.example.StudentPlanner.UI.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <activity
         android:id="@+id/termActivity"
-        android:name="com.example.c196.UI.TermActivity"
+        android:name="com.example.StudentPlanner.UI.TermActivity"
         android:label="activity_term"
         tools:layout="@layout/activity_term" />
 </navigation>

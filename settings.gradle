@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 
 }
-rootProject.name = "C196"
+rootProject.name = "StudentPlanner"
 include ':app'

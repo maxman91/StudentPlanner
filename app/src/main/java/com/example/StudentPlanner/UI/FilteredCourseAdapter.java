@@ -1,20 +1,17 @@
-package com.example.c196.UI;
+package com.example.StudentPlanner.UI;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.c196.Database.Repository;
-import com.example.c196.Entity.Courses;
-import com.example.c196.R;
+import com.example.StudentPlanner.Database.Repository;
+import com.example.StudentPlanner.Entity.Courses;
+import com.example.StudentPlanner.R;
 
 import java.util.List;
 
